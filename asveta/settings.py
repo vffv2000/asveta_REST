@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "school.apps.SchoolConfig",
-    "frontend.apps.FrontendConfig",
     "rest_framework",
 ]
 
