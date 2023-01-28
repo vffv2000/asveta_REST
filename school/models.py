@@ -1,5 +1,14 @@
 from django.db import models
 
+DAY_WEEK_CHOICES = (
+    ('monday','Понедельник'),
+    ('tuesday ', 'Вторник'),
+    ('wednesday ','Среда'),
+    ('thursday ','Четверг'),
+    ('friday ','Пятница'),
+    ('saturday  ','Суббота'),
+    ('sunday  ','воскресенье'),
+)
 
 class Student(models.Model):
     name = models.CharField(max_length=30, verbose_name='прозвішча, імя')
@@ -39,6 +48,7 @@ class Course(models.Model):
     amount_studens = models.IntegerField(default=0, verbose_name='колькасць вучаняў зараз')
     amount_places = models.IntegerField(default=5, verbose_name='ўсяго месц')
     is_full = models.BooleanField(default=False, verbose_name='запоўнены')
+    day_week = models.CharField(max_length=10, choices=DAY_WEEK_CHOICES, default='monday')
 
     def __str__(self):
         return f"{self.subject} {self.grade} клас"
@@ -56,4 +66,3 @@ class Blog(models.Model):
     photo = models.ImageField(upload_to='site_pictures/%Y/%m/%d', verbose_name='фота', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='апублікавана')
     # tag = models.ForeignKey('Tag', on_delete=models.PROTECT)
-
