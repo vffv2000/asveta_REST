@@ -66,3 +66,10 @@ class Blog(models.Model):
     photo = models.ImageField(upload_to='site_pictures/%Y/%m/%d', verbose_name='фота', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='апублікавана')
     # tag = models.ForeignKey('Tag', on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Блог'
+        verbose_name_plural = 'Блог'

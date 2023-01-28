@@ -142,4 +142,7 @@ GitHub.sublime-settings
 #node
 node_modules/*
 
+#media files
+.asveta.media/
+
 
