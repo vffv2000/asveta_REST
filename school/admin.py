@@ -38,3 +38,11 @@ class Blog_Admin(admin.ModelAdmin):
             return '-'
 
 admin.site.register(Blog, Blog_Admin)
+
+
+class RequestList_Admin(admin.ModelAdmin):
+    list_display = ('subject','grade','time_lesson','email','is_confirmed')
+    list_display_links = ('subject',)
+    search_fields = ('subject','grade','time_lesson')
+
+admin.site.register(RequestList, RequestList_Admin)

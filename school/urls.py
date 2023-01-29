@@ -8,6 +8,7 @@ from rest_framework import routers
 router = routers.SimpleRouter()
 router.register(r'course', CourseViewSet)
 router.register(r'blog', BlogViewSet)
+router.register(r'requestlist', RequestlistViewSet)
 
 
 urlpatterns = [

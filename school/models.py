@@ -11,6 +11,7 @@ DAY_WEEK_CHOICES = (
 )
 
 class Student(models.Model):
+
     name = models.CharField(max_length=30, verbose_name='прозвішча, імя')
     amount_courses = models.IntegerField(default=0, verbose_name='колькасць наведвальных курсаў')
     courses = models.ManyToManyField("Course",verbose_name="урок")
@@ -73,3 +74,23 @@ class Blog(models.Model):
     class Meta:
         verbose_name = 'Блог'
         verbose_name_plural = 'Блог'
+
+
+class RequestList(models.Model):
+    subject = models.CharField(max_length=20, verbose_name='прадмет')
+    grade = models.IntegerField(default=0, verbose_name='клас')
+    time_lesson = models.TimeField(verbose_name='час правядзення')
+    email = models.EmailField(verbose_name="пошта")
+    is_confirmed = models.BooleanField(default=False, verbose_name='пацверджана')
+
+    def __str__(self):
+        return self.pk
+
+    class Meta:
+        verbose_name = 'Запic на курс'
+        verbose_name_plural = 'Запicы на курсы'
+
+
+
+
+

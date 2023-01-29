@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 
 from school.models import *
-from school.serializers import CourseSerializer, BlogSerializer
+from school.serializers import CourseSerializer, BlogSerializer, RequestListSerializer
 from rest_framework import generics, viewsets, mixins
 from rest_framework.viewsets import GenericViewSet
 
@@ -23,6 +23,15 @@ class BlogViewSet(mixins.CreateModelMixin,
                    GenericViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
+
+
+class RequestlistViewSet(mixins.CreateModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
+                   mixins.ListModelMixin,
+                   GenericViewSet):
+    queryset = RequestList.objects.all()
+    serializer_class = RequestListSerializer
 
 # class CourseAPIList(generics.ListCreateAPIView):
 #     queryset = Course.objects.all()
