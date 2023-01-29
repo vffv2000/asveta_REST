@@ -1,21 +1,21 @@
 from django.db import models
 
 DAY_WEEK_CHOICES = (
-    ('monday','Понедельник'),
+    ('monday', 'Понедельник'),
     ('tuesday ', 'Вторник'),
-    ('wednesday ','Среда'),
-    ('thursday ','Четверг'),
-    ('friday ','Пятница'),
-    ('saturday  ','Суббота'),
-    ('sunday  ','воскресенье'),
+    ('wednesday ', 'Среда'),
+    ('thursday ', 'Четверг'),
+    ('friday ', 'Пятница'),
+    ('saturday  ', 'Суббота'),
+    ('sunday  ', 'воскресенье'),
 )
 
-class Student(models.Model):
 
+class Student(models.Model):
     name = models.CharField(max_length=30, verbose_name='прозвішча, імя')
     amount_courses = models.IntegerField(default=0, verbose_name='колькасць наведвальных курсаў')
-    courses = models.ManyToManyField("Course",verbose_name="урок")
-    email = models.EmailField(verbose_name="пошта",blank=True)
+    courses = models.ManyToManyField("Course", verbose_name="урок")
+    email = models.EmailField(verbose_name="пошта", blank=True)
 
     def __str__(self):
         return self.name
@@ -28,10 +28,10 @@ class Student(models.Model):
 class Teacher(models.Model):
     name = models.CharField(max_length=30, verbose_name='прозвішча, імя')
     specialization = models.CharField(max_length=30, verbose_name='спецыялізацыя', blank=True)
-    education = models.CharField(max_length=20, blank=True,verbose_name='адукацыя')
+    education = models.CharField(max_length=20, blank=True, verbose_name='адукацыя')
     work_experience = models.IntegerField(blank=True, verbose_name='стаж')
     amount_courses = models.IntegerField(default=0, verbose_name='колькасць курсаў')
-    email = models.EmailField(verbose_name="пошта",blank=True)
+    email = models.EmailField(verbose_name="пошта", blank=True)
 
     def __str__(self):
         return self.name
@@ -42,7 +42,7 @@ class Teacher(models.Model):
 
 
 class Course(models.Model):
-    subject = models.CharField(max_length=20, verbose_name='прадмет' )
+    subject = models.CharField(max_length=20, verbose_name='прадмет')
     grade = models.IntegerField(default=0, verbose_name='клас')
     teacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, verbose_name='настаўнік')
     time_lesson = models.TimeField(verbose_name='час правядзення')
@@ -66,6 +66,7 @@ class Blog(models.Model):
     update_at = models.DateTimeField(auto_now=True, verbose_name='зменены')
     photo = models.ImageField(upload_to='site_pictures/%Y/%m/%d', verbose_name='фота', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='апублікавана')
+
     # tag = models.ForeignKey('Tag', on_delete=models.PROTECT)
 
     def __str__(self):
@@ -75,22 +76,16 @@ class Blog(models.Model):
         verbose_name = 'Блог'
         verbose_name_plural = 'Блог'
 
-
-class RequestList(models.Model):
-    subject = models.CharField(max_length=20, verbose_name='прадмет')
-    grade = models.IntegerField(default=0, verbose_name='клас')
-    time_lesson = models.TimeField(verbose_name='час правядзення')
-    email = models.EmailField(verbose_name="пошта")
-    is_confirmed = models.BooleanField(default=False, verbose_name='пацверджана')
-
-    def __str__(self):
-        return self.pk
-
-    class Meta:
-        verbose_name = 'Запic на курс'
-        verbose_name_plural = 'Запicы на курсы'
-
-
-
-
-
+# class Record(models.Model):
+#     subject = models.CharField(max_length=20, verbose_name='прадмет')
+#     grade = models.IntegerField(default=0, verbose_name='клас')
+#     time_lesson = models.TimeField(verbose_name='час правядзення')
+#     email = models.EmailField(verbose_name="пошта")
+#     is_confirmed = models.BooleanField(default=False, verbose_name='пацверджана')
+#
+#     def __str__(self):
+#         return self.pk
+#
+#     class Meta:
+#         verbose_name = 'Запic на курс'
+#         verbose_name_plural = 'Запicы на курсы'
