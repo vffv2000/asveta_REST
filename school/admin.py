@@ -5,7 +5,7 @@ from .models import *
 
 
 class Student_Admin(admin.ModelAdmin):
-    list_display = ('name','amount_courses')
+    list_display = ('pk', 'name','amount_courses')
     list_display_links = ('name',)
     search_fields = ('name',)
 
@@ -13,21 +13,21 @@ admin.site.register(Student, Student_Admin)
 
 
 class Teacher_Admin(admin.ModelAdmin):
-    list_display = ('name','education','specialization','work_experience','amount_courses')
+    list_display = ('pk', 'name','education','specialization','work_experience','amount_courses')
     list_display_links = ('name',)
     search_fields = ('name','specialization')
 
 admin.site.register(Teacher, Teacher_Admin)
 
 class Course_Admin(admin.ModelAdmin):
-    list_display = ('subject','grade','teacher','time_lesson')
+    list_display = ('pk', 'subject','grade','teacher','time_lesson')
     list_display_links = ('subject',)
     search_fields = ('subject','grade','teacher')
 
 admin.site.register(Course, Course_Admin)
 
 class Blog_Admin(admin.ModelAdmin):
-    list_display = ('title','content','update_at','is_published','photo')
+    list_display = ('pk', 'title','content','update_at','is_published','photo')
     list_display_links = ('title',)
     search_fields = ('subject','grade','teacher')
 
