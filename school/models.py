@@ -12,6 +12,7 @@ DAY_WEEK_CHOICES = (
 
 
 class Student(models.Model):
+    tg_id = models.IntegerField(default=0, verbose_name='id в телеге')
     name = models.CharField(max_length=30, verbose_name='прозвішча, імя')
     amount_courses = models.IntegerField(default=0, verbose_name='колькасць наведвальных курсаў')
     courses = models.ManyToManyField("Course", verbose_name="урок")
