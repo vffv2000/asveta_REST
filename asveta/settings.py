@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-!*!@44_hrt^n4*3(2ao2bm=2e9bbd#9$l+^7ogfi0v^!9cf8c0"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['new.asveta.by']
 
 
 # Application definition
@@ -77,14 +77,14 @@ WSGI_APPLICATION = "asveta.wsgi.application"
 
 DATABASES = {
     "default": {
-        # "ENGINE": "django.db.backends.sqlite3",
-        # "NAME": BASE_DIR / "db.sqlite3",
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'asveta',
-        'USER':'root',
-        'PASSWORD':'root',
-        'HOST':'127.0.0.1',
-        'PORT':'3306'
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'asveta',
+        # 'USER':'root',
+        # 'PASSWORD':'root',
+        # 'HOST':'127.0.0.1',
+        # 'PORT':'3306'
     }
 }
 
